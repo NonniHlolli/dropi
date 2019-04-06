@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Starter Template - Materialize</title>
+
+  <!-- CSS  -->
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="icon" href="./images/favicon.ico" type="image/gif" sizes="16x16">
+</head>
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo center">rvk2do</a>
+      <ul class="right ">
+        <li><a href="./map"><i class='fas fa-map-marked-alt'></i></a></li>
+      </ul>
+
+      <div id="slide-out" class="sidenav light-blue lighten-1">
+        <h3 class = 'nav_title'> Thor tour guide </h3>
+        <img class = 'nav_img' src = "./images/viking.gif">
+        <div class = 'nav_chat' id="chatbot">
+          <p class='nav_message left'> Hello. What would you like to do?</p>
+        </div>
+        <span class="nav__inputs">
+          <input class='nav__input' type="text" id="message">
+          <button class="btn-floating btn-large red right nav__button" id = 'ask'><i class="material-icons">edit</i></button>
+        </span>
+    </div>
+      <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">chat_bubble_outline</i></a>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+
+      </div>
+
+
+    </div>
+    <br><br>
+  </div>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      fetchMarkers()
+    });
+    var allEvents = [];
+    var histEvents = [];
+    var concertEvents = [];
+     function fetchMarkers(){
+         fetch('/allevents')
+             .then(res => res.json())
+             .then(events => {
+                 console.log(events);
+                 events.forEach((event) => {
+                     addCard(event);
+                 });
+                 allEvents = events;
+             }).then(() => {
+                 getHistEvents();
+                 getConcertEvents();
+             });
+     }
+     function el(name, classes, ...childrens) {
+       const element = document.createElement(name);
+       if (Array.isArray(classes)) {
+         classes.forEach((classChild) => {
+           element.classList.add(classChild);
+         });
+       } else if (classes) {
+         element.classList.add(classes);
+       }
+       let children;
+       if (Array.isArray(childrens[0])) {
+         [children] = childrens;
+       } else {
+         children = childrens;
+       }
+       if (Array.isArray(children)) {
+         children.forEach((child) => {
+           if (typeof child === 'string') {
+             element.appendChild(document.createTextNode(child));
+           } else if (child) {
+             element.appendChild(child);
+           }
+         });
+       }
+       return element;
+     }
+
+
+
+
+         function addCard(ev){
+
+           const container = document.querySelector('.row');
+           const thumbElement = el('img', 'activator', '');
+           thumbElement.src = ev.image;
+           const image = el('div',['card-image', 'waves-effect', 'waves-block', 'waves-light'],thumbElement);
+
+           const day = el('div','card-header-day','4')
+           const month = el('div','card-header-day','feb')
+           const date = el('div',['light-blue','lighten-1','card-header-date'],[day,month])
+
+           const spanner = el('span',['card-title','activator','grey-text', 'text-darken-4'],ev.title)
+
+           const icon = el('i',['fas', 'fa-dollar-sign','card-extra-icon'],'')
+           if (ev.price==''){
+             ev.price = 'Free'
+           }
+           const per2 = el('p','card-extra-text',ev.price)
+           const icon2 = el('i',['far', 'fa-clock','card-extra-icon'],'')
+           const per3 = el('p','card-extra-text',ev.duration)
+           const auka =  el('div','card-extra',[icon,per2,icon2,per3])
+           const content = el('div','card-content',[spanner,auka]);
+           const spanner2 = el('span',['card-title','activator','grey-text', 'text-darken-4'],ev.title)
+           const per = el('p','',ev.description)
+           const reveal = el('div','card-reveal',[spanner2,per]);
+           const card = el('div','card',[image,date,content,reveal]);
+           const col = el('div',['col', 'push-s1', 's10'],card);
+           container.appendChild(col)
+         }
+
+      </script>
+      <script>
+
+        const button = document.getElementById('ask');
+        button.addEventListener('click', function(e) {
+            const container = document.querySelector('.row');
+
+          const input = document.getElementById('message');
+          var data = {
+            message: input.value
+          };
+
+          var p = el("span", ["right", "nav_message"]);
+
+          p.innerHTML = input.value;
+          console.log("input" , input)
+          console.log(p)
+          input.value = "";
+          const output = document.getElementById('chatbot');
+
+          output.appendChild(p);
+         output.innerHTML += "<br>";
+          fetch("/askbot", {
+              method: 'POST', // or 'PUT'
+              body: JSON.stringify(data), // data can be `string` or {object}!
+              headers: {
+                'Content-Type': 'application/json'
+              }
+            }).then(res => res.json())
+            .then((response) => {
+              const output = document.getElementById('chatbot');
+              var data = JSON.stringify(response);
+               // output.innerHTML = "";
+
+
+              console.log('Success:', data)
+                container.innerHTML = "";
+                console.log(data.topScoringIntent);
+                console.log("res ind")
+                console.log(response.topScoringIntent.intent);
+
+                var resInd = response.topScoringIntent.intent;
+
+
+
+                var botText = "";
+                if(resInd == "concerts"){
+                    botText = "Here is something we think you will like.";
+                    console.log("concerts add to card");
+                    console.log(concertEvents);
+                    for(var i=0; i<concertEvents.length; i++){
+                        addCard(concertEvents[i]);
+                    }
+                } else if(resInd = "None"){
+                    botText = "Sorry I could not find anything you want";
+                } else {
+                    botText = "Here is something we think you will like."
+                    for(var i=0; i<histEvents.length; i++){
+                        addCard(histEvents[i]);
+                    }
+                }
+                var pbot = el("span", ["left", "nav_message"]);
+                pbot.innerHTML = botText;
+                output.appendChild(pbot);
+                output.innerHTML += "<br>";
+                output.scrollTop = output.scrollHeight
+                // setTimeout(() => {
+                //
+                // }, 300);
+
+                setTimeout(() => {
+                    pbot = el("span", ["left", "nav_message"]);
+                    pbot.innerHTML = "Would you like to see something else?";
+                    output.appendChild(pbot);
+                    output.innerHTML += "<br>";
+                    output.scrollTop = output.scrollHeight
+                },2000);
+
+
+            })
+            .catch(error => console.error('Error:', error));
+        });
+
+
+
+         function getHistEvents(){
+             for(var i=0;i<allEvents.length;i++){
+                 var tags = allEvents[i].tags;
+
+                 if(tags != null){
+                     for(var j=0; j<tags.length; j++){
+
+                         if(tags[j].tag == "historical"){
+                             histEvents.push(allEvents[i]);
+                         }
+                     }
+                 }
+             }
+
+         }
+
+         function getConcertEvents(){
+             for(var i=0;i<allEvents.length;i++){
+                 var tags = allEvents[i].tags;
+                 console.log(tags);
+
+                 if(tags != null){
+                     for(var j=0; j<tags.length; j++){
+                         if(tags[j].tag == "concert"){
+                             concertEvents.push(allEvents[i]);
+                         }
+                     }
+                 }
+             }
+             console.log("concenrt")
+             console.log(concertEvents)
+         }
+
+      </script>
+  </body>
+</html>

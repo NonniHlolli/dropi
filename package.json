@@ -26,6 +26,7 @@
     "express": "^4.16.4",
     "mongoose": "^5.4.9",
     "npm": "^6.7.0",
+    "pg": "^7.9.0",
     "querystring": "^0.2.0",
     "request": "^2.88.0",
     "tedious": "^4.1.3"
