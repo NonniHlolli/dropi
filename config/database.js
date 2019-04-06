@@ -23,7 +23,6 @@ client.query(
       return;
     }
 
-    addBoats(res.rows);
     client.end();
   },
 );
