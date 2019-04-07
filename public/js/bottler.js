@@ -24,3 +24,8 @@ function fetchBottle(){
 function setUp(event){
   console.log(event)
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems, options);
+  });

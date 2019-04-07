@@ -7,11 +7,17 @@
 
   <!-- CSS  -->
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Merriweather:400,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <link rel="icon" href="./images/favicon.ico" type="image/gif" sizes="16x16">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+   <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+   integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+   crossorigin=""></script>
 </head>
 <body>
   <div class="container">
@@ -24,57 +30,66 @@
     <h3 class = "heads"> The fishing grounds</h3>
     <div class="section">
       <div class="row">
-        <div class="col hide-on-med-and-up s12">
-          <img class="responsive-img " src="./images/map.png">
+        <div class="col s12 m6 l5">
+          <div id="mapid"></div>
         </div>
-        <div class="col s12 m8">
+        <div class="col s12 m6 l7">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non ligula nec diam sagittis elementum nec quis tortor. Praesent venenatis risus id sapien varius posuere. Vestibulum pharetra est nec auctor egestas. Nullam id vulputate quam, a commodo lorem. Aliquam imperdiet, quam non tempor finibus, nisi nisi fermentum ex, sed lacinia massa arcu eget sem. Etiam id gravida velit. Morbi interdum nec velit quis facilisis. Aenean accumsan neque metus, vitae fermentum orci accumsan ac. Sed auctor pretium sagittis. Proin sit amet mollis magna. Praesent non dui venenatis, rhoncus risus id, varius lacus. Sed vel sem convallis, pretium mi ut, iaculis augue. Etiam suscipit ultrices fringilla.
-        </div>
-        <div class="col hide-on-small-only m4">
-          <img class="responsive-img " src="./images/map.png">
         </div>
       </div>
     </div>
     <h3 class = "heads"> The fish</h3>
     <div class="section">
       <div class="row">
-        <div class="col s12 m4">
+        <div class="col hide-on-med-and-up s12">
           <img class="responsive-img " src="./images/cod.png">
         </div>
         <div class="col s12 m8 ">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non ligula nec diam sagittis elementum nec quis tortor. Praesent venenatis risus id sapien varius posuere. Vestibulum pharetra est nec auctor egestas. Nullam id vulputate quam, a commodo lorem. Aliquam imperdiet, quam non tempor finibus, nisi nisi fermentum ex, sed lacinia massa arcu eget sem. Etiam id gravida velit. Morbi interdum nec velit quis facilisis. Aenean accumsan neque metus, vitae fermentum orci accumsan ac. Sed auctor pretium sagittis. Proin sit amet mollis magna. Praesent non dui venenatis, rhoncus risus id, varius lacus. Sed vel sem convallis, pretium mi ut, iaculis augue. Etiam suscipit ultrices fringilla.
+        </div>
+        <div class="col hide-on-small-only m4">
+          <img class="responsive-img " src="./images/cod.png">
         </div>
       </div>
     </div>
     <h3 class = "heads"> The market</h3>
     <div class="section">
       <div class="row">
-        <div class="col hide-on-med-and-up s12">
+        <div class="col s12 m4">
           <img class="responsive-img " src="./images/fmv.png">
         </div>
         <div class="col s12 m8 ">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non ligula nec diam sagittis elementum nec quis tortor. Praesent venenatis risus id sapien varius posuere. Vestibulum pharetra est nec auctor egestas. Nullam id vulputate quam, a commodo lorem. Aliquam imperdiet, quam non tempor finibus, nisi nisi fermentum ex, sed lacinia massa arcu eget sem. Etiam id gravida velit. Morbi interdum nec velit quis facilisis. Aenean accumsan neque metus, vitae fermentum orci accumsan ac. Sed auctor pretium sagittis. Proin sit amet mollis magna. Praesent non dui venenatis, rhoncus risus id, varius lacus. Sed vel sem convallis, pretium mi ut, iaculis augue. Etiam suscipit ultrices fringilla.
-        </div>
-        <div class="col hide-on-small-only m4">
-          <img class="responsive-img " src="./images/fmv.png">
+          <div id="modal1" class="modal">
+            <div class="modal-content">
+              <h4>Modal Header</h4>
+              <p>A bunch of text</p>
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <h3 class = "heads"> Our company</h3>
     <div class="section">
       <div class="row">
-        <div class="col s12 m4 valign-wrapper">
+        <div class="col s12 hide-on-med-and-up">
           <img class="responsive-img" src="./images/dropiLogo.png">
         </div>
         <div class="col s12 m8 ">
           Our location is in Bolungarvík in the Westfjords of Iceland.  The town is one of the oldest fishing communities in Iceland.  Although Bolungarvik is often described as “isolated and spectacular”, it is very well accessible and a fantastic location to watch the Northern Lights during winter and experience the midnight sun during summer. Our production facility follows strict European manufacturing standards and follows HACCP guidelines. We always want to provide our customers with the best natural source of Omega-3 fatty acids and vitamins A & D. The establishment’s manufacturing and hygiene practices are regularly inspected by MAST, the Icelandic food and vetenary authority, against fulfilment of demands in Regulations (EC) No 178/2002, 852/2004 and 852/2004.  The establishment has put in place and implemented check system based on HACCP principles in accordance with the article 5 of the Regulation (EC)) No 852/2004 and verification of operation in accordance with the US FDA’s Seafood HACCP Regulation 21 CFR 123.
+        </div>
+        <div class="col hide-on-small-only m4">
+          <img class="responsive-img" src="./images/dropiLogo.png">
         </div>
       </div>
     </div>
     <h3 class = "heads"> Your bottle</h3>
     <div class="section">
       <div class="row">
-        <div class="col hide-on-med-and-up s12">
+        <div class="col s12 m4">
           <img class="responsive-img center-align" src="./images/dropi.jpg">
         </div>
         <div class="col s12 m8 ">
@@ -85,9 +100,6 @@
           Cod liver oil is long known for its health benefits and has been used for centuries to enhance health and well being. It is considered to play an important role in contributing to better brain, eye and cardio vascular function. It has been a crucial supplement for people living in harsh environment with long winters, like Iceland.
           <br>
           This quality product is produced according to European standards of Good Manufacturing Practice (HACCP).
-        </div>
-        <div class="col hide-on-small-only m4">
-          <img class="responsive-img " src="./images/dropi.jpg">
         </div>
       </div>
     </div>
@@ -102,5 +114,6 @@
   </div>
   <script type="text/javascript" src="js/materialize.min.js"></script>
   <script type="text/javascript" src="js/bottler.js"></script>
+  <script type="text/javascript" src="js/map.js"></script>
   </body>
 </html>

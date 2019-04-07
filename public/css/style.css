@@ -10,10 +10,12 @@
    color: #f67408;
    padding-bottom: 1px;
    border-bottom: 3px solid #f67408;
+   font-family: 'Merriweather', serif;
  }
  .headS {
    color: #f67408;
    padding-bottom: 1px;
+   font-family: 'Merriweather', serif;
  }
 
  .comment {
@@ -66,4 +68,13 @@ img {
 
 .cart {
   vertical-align: bottom;
+}
+
+
+#mapid {
+  height: 250px;
+ }
+
+* {
+ font-family: 'Lato', sans-serif;
 }
