@@ -11,6 +11,10 @@
    padding-bottom: 1px;
    border-bottom: 3px solid #f67408;
  }
+ .headS {
+   color: #f67408;
+   padding-bottom: 1px;
+ }
 
  .comment {
    color: #A9A9A9;
@@ -43,3 +47,23 @@
    border-bottom: 1px solid #f67408 !important;
    box-shadow: 0 1px 0 0 #f67408 !important;
  }
+
+ .enterText {
+   text-align: justify;
+   text-justify: inter-word;
+ }
+
+
+img {
+  display:block;
+  margin-right:auto;
+  margin-left:auto;
+}
+
+.bottom {
+  width: 100%;
+}
+
+.cart {
+  vertical-align: bottom;
+}
