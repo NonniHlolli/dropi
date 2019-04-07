@@ -19,9 +19,19 @@ const getUsers = (request, response) => {
   })
 }
 
+const getBoats = (request, response) => {
+  pool.query('SELECT * FROM Boats', (error, results) => {
+    if (error) {
+      throw error
+    }
+    response.status(200).json(results.rows)
+  })
+}
+
 
 module.exports = {
   getUsers,
+  getBoats,
 }
 
 //"dbname=d5rljo47qov42f host=ec2-54-228-252-67.eu-west-1.compute.amazonaws.com port=5432 user=ykkvozlupgvldj password=83e8b98a1a1c07a3bdd3bc374b7d0d305ea90745e8de7472ef3d7ca9645da3c2 sslmode=require"

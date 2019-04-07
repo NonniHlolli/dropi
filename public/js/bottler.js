@@ -27,5 +27,12 @@ function setUp(event){
 
 document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.modal');
-    var instances = M.Modal.init(elems, options);
+    var instances = M.Modal.init(elems,{
+      endingTop:	'2%',
+      startingTop: '50%'
+    });
+    var elems = document.querySelectorAll('.scrollspy');
+    var instances = M.ScrollSpy.init(elems);
+    var elems = document.querySelectorAll('.pushpin');
+    var instances = M.Pushpin.init(elems);
   });

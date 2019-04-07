@@ -69,5 +69,3 @@ a = {
 L.geoJson(a,{onEachFeature: function(feature, featureLayer) {
   featureLayer.bindPopup('Einar Halfdans');}
 }).addTo(mymap);
-
-mymap.fitBounds(L.geoJson(a).getBounds());
