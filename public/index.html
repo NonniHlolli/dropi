@@ -15,22 +15,37 @@
 </head>
 <body>
   <div class="container">
-    <h2 class = "heads"> The story of your dropi</h2>
-    <h3 class = "heads"> The boats</h3>
-    <div class="section">
-      <div class="row">
+    <div class = "row">
+      <div class="col s12 m8 l9">
+        <h3> Traceability </h3>
+        <img class="responsive-img myndWrap hide-on-med-and-up" src="./images/dropi.jpg">
+        <p> Lýsing á rekjanleika. <br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a elementum ipsum, ut mattis eros. Fusce dignissim velit sit amet finibus molestie. Quisque euismod tincidunt porta. Aenean bibendum posuere neque, at tincidunt felis hendrerit nec. Aenean cursus magna sit amet enim elementum elementum. Cras nec dolor sed turpis convallis aliquet. Sed ac nibh a quam rhoncus elementum. Ut maximus malesuada nulla, ut interdum leo posuere eu. Fusce fermentum feugiat erat in hendrerit. Suspendisse mollis metus id lacus egestas, ut aliquet lorem sodales. Suspendisse ligula leo, ullamcorper ac purus ut, semper condimentum tellus. Sed a felis tortor. Sed et tristique magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut volutpat est eu nunc tincidunt, eu ullamcorper massa finibus. Cras sed neque sapien. </p>
+        <div class="row">
+          <div class="input-field col s8">
+            <input id="trace" type="text" class="validate" required pattern="[0-9]{6}">
+            <label for="trace">Trace code:</label>
+            <span class="helper-text" data-error="Not a valid trace number"> </span>
+          </div>
+          <button id = "go" class="btn waves-effect waves-light col s3 enter orange" type="submit" name="action">Trace
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
+        <div class="col s10 offset-s1">
+          <p class="comment">
+            Don't have your bottle yet?
+          </p>
+          <p class="comment">
+            Try: 621984
+          </p>
+        </div>
+      </div>
+      <div class="col hide-on-small-only m4 l3">
+        <img class="responsive-img myndEnter" src="./images/dropi.jpg">
       </div>
     </div>
-    <h3 class = "heads"> The fishing grounds</h3>
-
-    <h3 class = "heads"> The fish</h3>
-
-    <h3 class = "heads"> The market</h3>
-
-    <h3 class = "heads"> Our company</h3>
-
-    <h3 class = "heads"> Your bottle</h3>
   </div>
   <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script type="text/javascript" src="js/enter.js"></script>
   </body>
 </html>

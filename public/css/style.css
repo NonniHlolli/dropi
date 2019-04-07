@@ -11,3 +11,35 @@
    padding-bottom: 1px;
    border-bottom: 3px solid #f67408;
  }
+
+ .comment {
+   color: #A9A9A9;
+   padding: 0px;
+   margin: 0px;
+   text-align: center;
+ }
+
+ .enter {
+   margin-top: 25px;
+   color: #f67408;
+ }
+
+ .myndEnter {
+   height: 100%;
+   margin-top: 85px;
+ }
+
+ .myndWrap {
+   float: right;
+   margin: 10px;
+   width: 150px;
+ }
+
+ .input-field input[type=text]:focus + label {
+   color: #f67408 !important;
+ }
+
+ .input-field input[type=text]:focus {
+   border-bottom: 1px solid #f67408 !important;
+   box-shadow: 0 1px 0 0 #f67408 !important;
+ }

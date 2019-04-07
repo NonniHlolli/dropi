@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    form{
+        margin:auto;
+        width:400px;
+        padding:20px;
+        background-color: #ddd;
+    }
+    input{
+        width: 200px;
+        display:block;
+        margin:auto;
+        padding:5px;
+        margin-top:15px;
+    }
+    h1{
+        text-align:center;
+    }
+</style>
+<body>
+    <h1>EVENTS</h1>
+    <form action="/addevent" method="post">
+        <input type="text" name="title" placeholder="title">
+        <input type="text" name="description" placeholder="description">
+        <input type="text" name="date" placeholder="date">
+        <input type="text" name="venue" placeholder="venue">
+        <input type="text" name="lng" placeholder="lng"> (lng ca -21)
+        <input type="text" name="lat" placeholder="lat"> (lat ca 64)
+        <input type="text" name="image" placeholder="image url">
+        <input type="text" name="price" placeholder="price">
+        <input type="text" name="duration" placeholder="duration">
+        <input type="text" name="startTime" placeholder="startTime">
+        <input type="text" name="tag[1]" placeholder="tag">
+        <input type="text" name="tag[2]" placeholder="tag">
+        <input type="text" name="tag[3]" placeholder="tag">
+        <input type="text" name="tag[4]" placeholder="tag">
+
+        <input type="submit" value="Send">
+    </form>
+
+</body>
+</html>
