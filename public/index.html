@@ -23,9 +23,9 @@
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a elementum ipsum, ut mattis eros. Fusce dignissim velit sit amet finibus molestie. Quisque euismod tincidunt porta. Aenean bibendum posuere neque, at tincidunt felis hendrerit nec. Aenean cursus magna sit amet enim elementum elementum. Cras nec dolor sed turpis convallis aliquet. Sed ac nibh a quam rhoncus elementum. Ut maximus malesuada nulla, ut interdum leo posuere eu. Fusce fermentum feugiat erat in hendrerit. Suspendisse mollis metus id lacus egestas, ut aliquet lorem sodales. Suspendisse ligula leo, ullamcorper ac purus ut, semper condimentum tellus. Sed a felis tortor. Sed et tristique magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut volutpat est eu nunc tincidunt, eu ullamcorper massa finibus. Cras sed neque sapien. </p>
         <div class="row">
           <div class="input-field col s8">
-            <input id="trace" type="text" class="validate" required pattern="[0-9]{6}">
+            <input id="trace" type="text" required pattern="[0-9]{6}">
             <label for="trace">Trace code:</label>
-            <span class="helper-text" data-error="Not a valid trace number"> </span>
+            <span id = "comm" class="helper-text" data-error="Not a valid trace number"> </span>
           </div>
           <button id = "go" class="btn waves-effect waves-light col s3 enter orange" type="submit" name="action">Trace
             <i class="material-icons right">send</i>
@@ -46,6 +46,6 @@
     </div>
   </div>
   <script type="text/javascript" src="js/materialize.min.js"></script>
-  <script type="text/javascript" src="js/enter.js"></script>
+  <script type="module" src="js/enter.js"></script>
   </body>
 </html>
